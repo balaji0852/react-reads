@@ -1,5 +1,66 @@
 .App {
   text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.AppBar{
+  position: fixed;
+  width: 100%;
+  display: flex;
+  padding-top: 2vh;
+  justify-content: space-around;
+  background-color: white;
+}
+
+.Login{
+  padding-top: 20vh;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.Configs{
+    height: fit-content;
+}
+
+.CofigItems{
+  padding-left: 5vw;
+  display: flex;
+  justify-content: start;
+  width: 100vw;
+  
+}
+
+.addConfigs{
+  display: block;
+}
+
+.flex{
+  display: flex;
+}
+
+.justifyItem{
+  justify-content: end;
+  padding-right: 3vw;
+  width: 80vw;
+}
+.alignItems{
+  align-items: center;
+}
+
+
+.justifyItem2{
+  justify-content: end;
+  padding-right: 3vw;
+  width: 50vw;
+}
+
+
+.top{
+  color: transparent;
+  margin-top: 10vh;
 }
 
 .App-logo {

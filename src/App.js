@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Component } from 'react';
+import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
+import './App.css';
+import Bill from './pages/Bill';
+import MainLayout from './pages/MainLayout';
+import AddConfigs from './pages/AddConfigs';
+import Login from './pages/Login';
+import configs from './pages/Configs';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+
+class App extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <Routes>
+            <Route index path='/' Component={Login} />
+            <Route path='/Home' Component={MainLayout} >
+              <Route path="Bill" Component={Bill} />
+              <Route path="configs" Component={configs} />
+              <Route path="add" Component={AddConfigs} />
+            </Route>
+          </Routes>
+        </Router>
+      </div>
+    );
+  }
+
+
 }
 
-export default App;
+configs.propTypes = {
+  state:PropTypes.object.isRequired
+}
+
+
+const mapStateToProps = (state) => {
+  
+  return ({
+      state: state
+  });
+};
+
+
+export default connect(mapStateToProps)(App);
