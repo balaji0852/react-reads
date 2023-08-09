@@ -9,7 +9,7 @@ class Bill extends Component {
         this.state = {
             kms:0,
             hours:0,
-            dayOfWeek:0,
+            dayOfWeek:1,
             WeightingHours:0,
             billAmount :-1
         }
@@ -30,7 +30,7 @@ class Bill extends Component {
 
 
     update(){
-        fetch(`http://localhost:8081/api/v1/invoice/PriceCalculator?kms=${this.state.kms}&hours=${this.state.hours}&dayOfWeek=${this.state.dayOfWeek}&WeightingHours=${this.state.WeightingHours}`).
+        fetch(`http://localhost:8080/api/v1/invoice/PriceCalculator?kms=${this.state.kms}&hours=${this.state.hours}&dayOfWeek=${this.state.dayOfWeek}&WeightingHours=${this.state.WeightingHours}`).
         then((response) => response.json()).then((amount) => {
             console.log(amount);
             this.setState({
@@ -50,14 +50,14 @@ class Bill extends Component {
             <br/>
             <Col sm="10" md={{ size: 4, offset: 2 }}>
                 <div className="flex ">
-                    <div>Weighting hours </div>
+                    <div>Waiting -mins </div>
                     <Input id="WeightingHours" onChange={this.onChangeParameters.bind(this)} />
                 </div>
             </Col>
             <br/>
             <Col sm="10" md={{ size: 4, offset: 2 }}>
                 <div className="flex ">
-                    <div>configuration type </div>
+                    <div>day </div>
                     <Input type="select" name="select" id="dayOfWeek"
                         onChange={this.onChangeParameters.bind(this)} >
                         <option value="1">sunday</option>
@@ -77,6 +77,9 @@ class Bill extends Component {
                     <Input id="hours"  onChange={this.onChangeParameters.bind(this)} />
                 </div>
             </Col>
+            <br/>
+            <br/>
+            <br/>
             <div className="flex justifyItem2">
                 <Button onClick={() => this.update()}>Generate bill</Button>
             </div>
@@ -84,7 +87,7 @@ class Bill extends Component {
             <br/>
             <br/>
             <br/>
-            { this.state.billAmount>0 && <h2>Total bill amount {this.state.billAmount}</h2>}
+            { this.state.billAmount>0 && <h2>Total bill amount {this.state.billAmount} $</h2>}
         </div>;
     }
 }

@@ -17,7 +17,7 @@ class configs extends Component {
     }
 
     getConfigurationList() {
-        fetch('http://localhost:8081/api/V1/PricingConfiguration').then((response) => response.json()).then(
+        fetch('http://localhost:8080/api/V1/PricingConfiguration').then((response) => response.json()).then(
             (data) => {
                 this.setState({
                     configurationList: data
@@ -61,7 +61,7 @@ class configs extends Component {
 
     deleteConfiguration(configuration) {
         
-        fetch('http://localhost:8081/api/v1/delete/PricingConfiguration', {
+        fetch('http://localhost:8080/api/v1/delete/PricingConfiguration', {
             method: 'DELETE',
             headers:{ 'Content-Type': 'application/json' },
             body: JSON.stringify(configuration)
@@ -74,7 +74,7 @@ class configs extends Component {
     handleUpdate(configuration){
         let updateConfig = configuration;
         updateConfig['configEnabled'] = !configuration['configEnabled'];
-        fetch('http://localhost:8081/api/v1/add/PricingConfiguration', {
+        fetch('http://localhost:8080/api/v1/add/PricingConfiguration', {
             method: 'POST',
             headers:{ 'Content-Type': 'application/json' },
             body: JSON.stringify(updateConfig)

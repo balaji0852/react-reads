@@ -82,7 +82,7 @@ class AddConfigs extends Component {
             }
         }
 
-        fetch('http://localhost:8081/api/v1/add/PricingConfiguration', {
+        fetch('http://localhost:8080/api/v1/add/PricingConfiguration', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(update)
@@ -146,7 +146,7 @@ class AddConfigs extends Component {
             <br />
             <Col sm="10" md={{ size: 4, offset: 2 }}>
                 <div className="flex ">
-                    <div>configuration type </div>
+                    <div>day </div>
                     <Input type="select" name="select" id="dayOfTheWeek" value={this.state["config"]["dayOfTheWeek"]}
                         onChange={this.onChange.bind(this)}>
                         <option value="1">sunday</option>
