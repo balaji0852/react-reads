@@ -17,8 +17,15 @@
 .Login{
   padding-top: 20vh;
   display: flex;
-  justify-content: center;
+  width: 100vw;
+  background-color: red;
+  
   height: 100%;
+}
+
+.block{
+  display: flexbox;
+  justify-content: space-evenly;
 }
 
 .Configs{

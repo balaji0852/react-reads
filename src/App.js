@@ -23,11 +23,11 @@ class App extends Component {
         <Router>
           <Routes>
             <Route index path='/' Component={Login} />
-            <Route path='/Home' Component={MainLayout} >
+            {/* <Route path='/Home' Component={MainLayout} >
               <Route path="Bill" Component={Bill} />
               <Route path="configs" Component={configs} />
               <Route path="add" Component={AddConfigs} />
-            </Route>
+            </Route> */}
           </Routes>
         </Router>
       </div>
